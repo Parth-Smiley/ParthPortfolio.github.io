@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth - Portfolio</title>
+    <style>
+        /* Base Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        /* 
+         * Hero/Header Section
+         */
+        .hero-section {
+            background-color: #0B0F19;
+            color: #ffffff;
+            height: 100vh;
+            border-radius: 60px;
+            margin: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Top Left Logo Area */
+        .logo-container {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Inline SVG Network Icon */
+        .logo-icon svg {
+            width: 35px;
+            height: 35px;
+            stroke: #185a7d;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .logo-text {
+            color: #185a7d; 
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-text span {
+             display: block;
+        }
+
+        /* Center Name - Modernized with animated gradient and drop shadow */
+        .hero-title {
+            font-size: 14vw;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ffffff, #185a7d, #00d2ff, #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+            filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.6));
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Navigation Buttons - Modernized with float hover effect */
+        .button-group {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #0B0F19;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Content Sections */
+        .section-container {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #0B0F19;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background-color: #ffffff;
+            color: #0B0F19;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #e1e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: #185a7d;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f4f8;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #0B0F19;
+            font-weight: 800;
+        }
+
+        .project-card p {
+            font-size: 16px;
+            color: #555555;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: #0B0F19;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .project-link:hover {
+            background-color: #185a7d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(24, 90, 125, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0B0F19;
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 26px;
+            font-weight: 800;
+            margin: 20px;
+            border-radius: 60px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Header -->
+    <header class="hero-section">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="20" r="4" fill="#185a7d" />
+                    <circle cx="20" cy="50" r="4" fill="#185a7d" />
+                    <circle cx="80" cy="50" r="4" fill="#185a7d" />
+                    <circle cx="35" cy="80" r="4" fill="#185a7d" />
+                    <circle cx="65" cy="80" r="4" fill="#185a7d" />
+                    <path d="M50 20 L20 50 L35 80 L65 80 L80 50 Z" />
+                    <path d="M50 20 L35 80 M50 20 L65 80 M20 50 L80 50 M20 50 L65 80 M80 50 L35 80" />
+                </svg>
+            </div>
+            <div class="logo-text">
+                <span>Parth</span>
+                <span>Portfolio</span>
+            </div>
+        </div>
+
+        <h1 class="hero-title">PARTH</h1>
+
+        <div class="button-group">
+            <a href="#skills" class="btn">Skills</a>
+            <a href="#projects" class="btn">My Projects</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- My Skills Section -->
+        <section id="skills" class="section-container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Python Programming</div>
+                <div class="skill-tag">HTML & CSS Dashboard Design</div>
+                <div class="skill-tag">React Web App Development</div>
+                <div class="skill-tag">Flutter Mobile App Development</div>
+                <div class="skill-tag">Explainable Multi-Modal AI</div>
+                <div class="skill-tag">Content Creation & Twitch Streaming</div>
+                <div class="skill-tag">Esports Event Organization</div>
+            </div>
+        </section>
+
+        <!-- My Projects Section -->
+        <section id="projects" class="section-container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>PayTrack AI</h3>
+                    <p>My main project is a payment tracker named PayTrack AI, featuring a fully functional React web application and a Flutter mobile app. I have structured the files to be securely stored and utilized for everyday tracking purposes.</p>
+                    <a href="https://github.com/parth/paytrack-ai" class="project-link">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Modular Record-Keeping System</h3>
+                    <p>Designed a comprehensive Python-based system consisting of multiple independent modules for managing patient IDs, folder structures, and visit logs without integrating diagnostic logic.</p>
+                    <a href="https://github.com/parth/record-system" class="project-link">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Esports Tournament Dashboard</h3>
+                    <p>Developed a modern web dashboard and team management page using HTML and CSS for organizing esports tournaments featuring competitive titles such as BGMI, Free Fire, and Valorant.</p>
+                    <a href="https://github.com/parth/esports-dash" class="project-link">View Project</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        Thank you
+    </footer>
+
+</body>
+</html>
